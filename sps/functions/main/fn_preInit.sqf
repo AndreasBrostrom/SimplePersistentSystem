@@ -31,6 +31,10 @@ if (count _saveHashMap == 0) exitWith {
 
 
 // Event Handlers
+[QEGVAR(log,text), {
+    diag_log text _this;
+}] call CBA_fnc_addEventHandler;
+
 [QEGVAR(EH,saveMissionState), {
     _this params[
         ["_triggerer", "server", [""]]
