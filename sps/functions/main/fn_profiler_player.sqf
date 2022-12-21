@@ -11,7 +11,7 @@ if (!isNil {_saveHashMap get getPlayerUID _player}) then {
 
     _player setVariable [QGVAR(objData), _saveData];
     _player setPos _saveData#1;
-    _player setDir _saveData#2;
+    _player setVectorDirAndUp _saveData#2;
     _player setUnitLoadout _saveData#5;
     
 } else {
@@ -24,16 +24,16 @@ _player addMPEventHandler ["MPRespawn", {
 }];
 
 _player addEventHandler ["GetOutMan", {
-	params ["_player", "_role", "_vehicle", "_turret"];
+    params ["_player", "_role", "_vehicle", "_turret"];
     [_player] call FUNC(saveObject); 
 }];
 
 _player addEventHandler ["GetInMan", {
-	params ["_player", "_role", "_vehicle", "_turret"];
+    params ["_player", "_role", "_vehicle", "_turret"];
     [_player] call FUNC(saveObject); 
 }];
 
 _player addEventHandler ["InventoryClosed", {
-	params ["_player", "_container"];
+    params ["_player", "_container"];
     [_player] call FUNC(saveObject); 
 }];

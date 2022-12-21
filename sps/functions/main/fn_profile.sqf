@@ -13,6 +13,9 @@ PROFILE_ID_NUMBER = PROFILE_ID_NUMBER + 1;
 private _profileVarId = [QEGVAR(obj,id), PROFILE_ID_NUMBER] joinString "_";
 _obj setVehicleVarName _profileVarId;
 
+// If variable detected not profile exit
+if (_obj getVariable [QGVAR(noProfileing), false]) exitWith {};
+
 switch (true) do {
     case (_obj isKindOf "man"): { _obj call EFUNC(profiler,unit); };
     case (_obj isKindOf "AllVehicles"): { _obj call EFUNC(profiler,vehicle); };

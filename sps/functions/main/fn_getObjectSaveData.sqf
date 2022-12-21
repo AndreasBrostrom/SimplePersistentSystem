@@ -24,13 +24,13 @@ if (_obj isKindOf "AllVehicles") then {
 };
 
 private _data = [
-    _objName, [         // Object id or player GUID
-        typeOf _obj,    // className
-        _pos,           // position
-        direction _obj, // direction
+    _objName, [                             // Object id or player GUID
+        typeOf _obj,                        // className
+        _pos,                               // position
+        [vectorDir _obj, vectorUp _obj],    // direction
         _obj getVariable [QEGVAR(Profile,Alive), true],
         _obj getVariable [QEGVAR(Profile,vehicleCrewed), false],
-        _playerLoadout  // unitLoadout (for players only)
+        _playerLoadout                      // unitLoadout (for players only)
     ]
 ];
 

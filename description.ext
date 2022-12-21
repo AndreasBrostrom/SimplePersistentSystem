@@ -1,4 +1,4 @@
 
 class CfgFunctions {
-	#include "sps\CfgFunctions.hpp"
+    #include "sps\CfgFunctions.hpp"
 };

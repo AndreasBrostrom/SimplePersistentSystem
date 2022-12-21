@@ -5,6 +5,7 @@ params[["_unit", objNull, [objNull]]];
 if (!isServer) exitWith {};
 
 private _saveHashMap = profileNamespace getVariable QEGVAR(missionProfiledObjects,SavedUnits);
+
 if (!isNil {_saveHashMap get str _unit}) then {
     private _saveData = _saveHashMap get str _unit;
     [formatText["Restoring state of %1 :: %2", _unit, _saveData]] call FUNC(info);
@@ -18,7 +19,7 @@ if (!isNil {_saveHashMap get str _unit}) then {
     };
     _unit setVariable [QGVAR(objData), _saveData];
     _unit setPos _saveData#1;
-    _unit setDir _saveData#2;
+    _unit setVectorDirAndUp _saveData#2;
     
 } else {
     [_unit, true] call FUNC(saveObject);

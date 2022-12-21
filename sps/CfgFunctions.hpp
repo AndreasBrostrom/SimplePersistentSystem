@@ -11,7 +11,7 @@ class SPS {
         class getObjectSaveData {};
         class removeProfileData {};
     };
-	class diag {
+    class diag {
         file = "sps\functions\diag";
         class error {};
         class info {};

@@ -18,7 +18,7 @@ if (!isNil {_saveHashMap get str _vehicle}) then {
     };
     _vehicle setVariable [QGVAR(objData), _saveData];
     _vehicle setPos _saveData#1;
-    _vehicle setDir _saveData#2;
+    _vehicle setVectorDirAndUp _saveData#2;
     
     if (_saveData#4) then {
         createVehicleCrew _vehicle;
@@ -41,7 +41,7 @@ _vehicle addEventHandler ["Killed", {
 }];
 
 this addEventHandler ["GetOut", {
-	params ["_vehicle", "_role", "_unit", "_turret"];
+    params ["_vehicle", "_role", "_unit", "_turret"];
     if (isNull _vehicle) exitWith {};
 
     [_vehicle] call FUNC(saveObject); 
