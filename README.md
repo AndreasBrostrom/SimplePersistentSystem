@@ -28,3 +28,8 @@ Players are saved a little bit now and then ussaly via event.
 | `GetInMan`        | When you get out of a vehicle.                                                         |
 | `InventoryClosed` | When you close your inventory.                                                         |
 | chat command      | Manually via chat command.                                                             |
+
+## No profiling of units
+```
+this setVariable ["noProfileing", true];
+```
