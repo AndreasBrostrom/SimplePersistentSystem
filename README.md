@@ -14,3 +14,17 @@ In order to install this script package you only need to [download the latest bu
 | ------------- | ----- | ------------------------------------------- |
 | `#savMission` | `any` | Save the mission and all plauer states      |
 | `#save`       | `any` | Save your player position and state         |
+
+## Event Handlers
+
+### Players
+Players are saved a little bit now and then ussaly via event.
+
+| Save events       | Description                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------- |
+| `PlayerConnected` | When you connect your are saved or loaded. Based on if you played befor or not.        |
+| `MPRespawn`       | After you respawn your new state is saved.                                             |
+| `GetOutMan`       | When you get in to a vehicle.                                                          |
+| `GetInMan`        | When you get out of a vehicle.                                                         |
+| `InventoryClosed` | When you close your inventory.                                                         |
+| chat command      | Manually via chat command.                                                             |
