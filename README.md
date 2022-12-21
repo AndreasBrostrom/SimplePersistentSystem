@@ -12,5 +12,5 @@ In order to install this script package you only need to [download the latest bu
 ##Chat commands
 | Command       | User  | Description                                 |
 | ------------- | ----- | ------------------------------------------- |
-| `#savMission` | `all` | Save the mission and all plauer states      | 
-| `save`        | ´all´ | Save your player position and state         |
+| `#savMission` | `any` | Save the mission and all plauer states      |
+| `#save`       | `any` | Save your player position and state         |
