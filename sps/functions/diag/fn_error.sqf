@@ -1,25 +1,27 @@
 #include "..\script_component.hpp"
 /*
  * Author: CPL.Brostrom.A
- *  This function print a formated rpt message.
+ * This function print a formated rpt message.
  *
  * Arguments:
  * 0: message <STRING>
  * 1: componant <STRING>
- * 2: type <STRING>
- * 3: showInChat <BOOL>
+ * 2: showInChat <BOOL>
+ * 3: sendToServer <BOOL>
  *
  * Example:
  * ["Something is wrong here."] call FUNC(error)
- * [formatText["%1 is a player.", player]] call FUNC(error)
+ * [format["%1 is a player.", player]] call FUNC(error)
  *
  */
 
 params [
-    ["_message", "", [text "", ""]],
+    ["_message", ""],
     ["_componant", "", [""]],
-    ["_type", "ERROR", [""]],
-    ["_showInChat", true, [true]]
+    ["_showInChat", true, [true]],
+    ["_sendToServer", false, [false]]
 ];
 
-[_message, _componant, _type, _showInChat] call FUNC(log);
+private _type = "ERROR";
+
+[_message, _componant, _showInChat, _sendToServer, _type] call FUNC(log);

@@ -2,14 +2,17 @@
 
 // Chat commands
 ["saveMission", {
+    ["Saved mission and all players", "", true] call FUNC(info);
     [QEGVAR(EH,saveMissionState), [format["%1 (%2)", name player, getPlayerUID player]]] call CBA_fnc_serverEvent;
 }, "adminLogged"] call CBA_fnc_registerChatCommand;
 
 ["save", {
+    ["Saved", "", true] call FUNC(info);
     [QEGVAR(EH,savePlayerState), [format["%1 (%2)", name player, getPlayerUID player], player]] call CBA_fnc_serverEvent;
 }, "all"] call CBA_fnc_registerChatCommand;
 
 ["removeSaveMission", {
+    ["Removed all save data", "", true] call FUNC(info);
     [QEGVAR(EH,clearMissionState), [format["%1 (%2)", name player, getPlayerUID player]]] call CBA_fnc_serverEvent;
 }, "admin"] call CBA_fnc_registerChatCommand;
 

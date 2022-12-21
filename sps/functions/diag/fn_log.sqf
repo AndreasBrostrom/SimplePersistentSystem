@@ -1,37 +1,43 @@
 #include "..\script_component.hpp"
 /*
  * Author: CPL.Brostrom.A
- *  This function print a formated rpt message.
+ * This function print a formated rpt message.
  *
  * Arguments:
  * 0: message <STRING>
  * 1: componant <STRING>
- * 2: type <STRING>
- * 3: showInChat <BOOL>
+ * 2: showInChat <BOOL>
+ * 3: sendToServer <BOOL>
+ * 4: typePrefix <STRING>
  *
  * Example:
  * ["Something is wrong here."] call FUNC(log)
- * [formatText["%1 is a player.", player]] call FUNC(log)
+ * [format["%1 is a player.", player]] call FUNC(log)
  *
  */
 
 params [
-    ["_message", "", [text "", ""]],
+    ["_message", ""],
     ["_componant", "", [""]],
-    ["_type", "LOG", [""]],
-    ["_showInChat", false, [false]]
+    ["_showInChat", false, [false]],
+    ["_sendToServer", false, [false]],
+    ["_type", "LOG", [""]]
 ];
 
-private _prefix = formatText ["[%1] ", QUOTE(PREFIX)];
+private _prefix = format ["[%1] ", QUOTE(PREFIX)];
 
-_componant = if ( _componant != "" ) then {formatText["(%1) ", _componant]} else {""};
+_componant = if ( _componant != "" ) then {format["(%1) ", _componant]} else {""};
 
-_type = formatText ["%1", _type];
+_type = format ["%1", _type];
 
-private _logMessage = formatText ["%1%2%3: %4", _prefix, _componant, _type, _message];
+private _logMessage = format ["%1%2%3: %4", _prefix, _componant, _type, _message];
 
-diag_log _logMessage;
+diag_log text _logMessage;
+
+if (_sendToServer) then {
+    [QEGVAR(log,text), _logMessage] call CBA_fnc_serverEvent;
+};
 
 if (_showInChat && (!isMultiplayer || {is3DENMultiplayer})) then {
-    systemChat str _logMessage;
+    systemChat _logMessage;
 };
